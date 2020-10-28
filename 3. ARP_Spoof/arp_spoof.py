@@ -38,6 +38,6 @@ try:
         # sys.stdout.flush()
         time.sleep(2)
 except KeyboardInterrupt:
-    print('\n[-] Detectd Ctrl + C.....Restoring ARP Table')
+    print('\n[-] Detected Ctrl + C.....Restoring ARP Table')
     restore(arguments.target_ip, arguments.source_ip)
     print('[+] Restored!')
